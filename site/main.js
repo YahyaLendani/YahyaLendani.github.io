@@ -17,6 +17,8 @@
   // Route line runs the page, from the waybill to the signature; the marker travels with scroll.
   const route = document.querySelector('.route');
   const end = document.querySelector('.signature');
+  const band = document.querySelector('.contents');
+  const marker = document.querySelector('.route-marker');
   if (route && end) {
     let ticking = false;
     const size = () => {
@@ -28,6 +30,11 @@
       const r = route.getBoundingClientRect();
       const p = r.height ? Math.min(1, Math.max(0, (innerHeight * 0.5 - r.top) / r.height)) : 0;
       route.style.setProperty('--p', p.toFixed(4));
+      if (band && marker) {
+        const b = band.getBoundingClientRect();
+        const y = r.top + p * r.height;
+        marker.classList.toggle('on-band', y >= b.top && y <= b.bottom);
+      }
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     const refit = () => { size(); update(); };
