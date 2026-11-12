@@ -14,7 +14,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=B612+Mono:wght@400;700&family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=B612+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=block" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>if('IntersectionObserver' in window)document.documentElement.classList.add('js')</script>
 </head>
@@ -32,9 +33,12 @@
 </header>
 
 <main id="top">
+  <div class="route" aria-hidden="true"><div class="route-fill"></div>
+  <div class="route-marker"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
+</div>
 
 <section class="hero">
-  <div class="bill print" data-reveal>
+  <div class="bill">
     <div class="bill-top">
       <strong>Waybill / Portfolio 2026</strong>
       <span class="barcode" aria-hidden="true">*YL-WAW-2026*</span>
@@ -79,11 +83,8 @@
 
 <section class="shipments" id="shipments">
   <h2>Six shipments, <span>tracked.</span></h2>
-  <p class="lede">Each one carries an honest status. Star counts and last-scan dates are read live from GitHub where the source is public.</p>
+  <p class="lede">Each one carries an honest status. For public repositories, star counts and last-scan dates are read live from GitHub.</p>
 
-  <div class="route" aria-hidden="true"><div class="route-fill"></div>
-    <div class="route-marker"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
-  </div>
 
   <article class="parcel print" id="cancelos" data-reveal>
     <header><span class="mono">YL-CANCELOS</span><span class="barcode" aria-hidden="true">*CANCELOS*</span></header>
@@ -94,7 +95,7 @@
     <dl>
       <div><dt>Contents</dt><dd>TypeScript</dd></div>
       <div><dt>Delivered to</dt><dd>cancelos.com</dd></div>
-      <div><dt>Last scan</dt><dd class="mono">2026-11-05</dd></div>
+      <div class="void"><dt>Last scan</dt><dd>Private, not tracked here</dd></div>
       <div class="void"><dt>Source</dt><dd>Private, not declared</dd></div>
     </dl>
     <footer>
@@ -112,8 +113,8 @@
     </div>
     <dl>
       <div><dt>Contents</dt><dd>Kotlin Multiplatform, SQLite, Supabase</dd></div>
-      <div><dt>Delivered to</dt><dd>Cross-platform, prototype stage</dd></div>
-      <div><dt>Last scan</dt><dd class="mono">2026-10-28</dd></div>
+      <div><dt>Delivered to</dt><dd>Cross-platform</dd></div>
+      <div class="void"><dt>Last scan</dt><dd>Private, not tracked here</dd></div>
       <div class="void"><dt>Source</dt><dd>Private, not declared</dd></div>
     </dl>
     <footer><span class="hold">In transit. No public link yet.</span></footer>
@@ -200,10 +201,12 @@
 <section class="sender" id="sender">
   <div class="sender-label print" data-reveal>
     <span class="cap">Sender details</span>
+    <div class="sender-top">
     <h2>Built in Warsaw, shipped everywhere.</h2>
     <div class="sender-body">
       <p>I am a third-year Computer Science student based in Warsaw, Poland. I build across different stacks with a strong focus on software architecture, cross-platform applications and, increasingly, machine learning.</p>
       <p>I learn by building: training clinical predictive models, designing local file-sync logic, tuning LLM agents. Long term, I want to lead a major tech company as its CEO.</p>
+    </div>
     </div>
     <dl>
       <div><dt>Based in</dt><dd>Warsaw, Poland</dd></div>
@@ -220,6 +223,7 @@
   <ul class="contact-links">
     <li><a href="mailto:yahyalendani@gmail.com"><span>Email</span><b>yahyalendani@gmail.com</b><svg class="arr" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
     <li><a href="https://github.com/YahyaLendani"><span>GitHub</span><b>github.com/YahyaLendani</b><svg class="arr" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li class="void"><div><span>LinkedIn</span><b>Not yet declared</b></div></li>
     <li><a href="https://cancelos.com"><span>Product</span><b>cancelos.com</b><svg class="arr" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
   </ul>
   <footer class="foot">
@@ -229,6 +233,6 @@
 </section>
 
 </main>
-<script src="main.js" defer></script>
+<script src="main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </body>
 </html>

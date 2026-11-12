@@ -14,34 +14,46 @@
     [...dd.children].forEach((s, n) => s.style.setProperty('--n', n));
   });
 
-  // Route marker travels the shipments section with scroll.
-  const section = document.querySelector('.shipments');
+  // Route line runs the page, from the waybill to the signature; the marker travels with scroll.
   const route = document.querySelector('.route');
-  if (section && route) {
+  const end = document.querySelector('.signature');
+  if (route && end) {
     let ticking = false;
+    const size = () => {
+      const stop = end.getBoundingClientRect().bottom - route.offsetParent.getBoundingClientRect().top;
+      route.style.height = Math.max(0, stop - route.offsetTop) + 'px';
+    };
     const update = () => {
       ticking = false;
       const r = route.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (innerHeight * 0.5 - r.top) / r.height));
+      const p = r.height ? Math.min(1, Math.max(0, (innerHeight * 0.5 - r.top) / r.height)) : 0;
       route.style.setProperty('--p', p.toFixed(4));
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    const refit = () => { size(); update(); };
     addEventListener('scroll', onScroll, { passive: true });
-    addEventListener('resize', onScroll);
-    update();
+    addEventListener('resize', refit);
+    addEventListener('load', refit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
+    refit();
   }
 
-  // Tape reacts to scroll speed.
-  if (!reduce) {
-    const tracks = [...document.querySelectorAll('.tape-track')];
-    let last = scrollY, boost = 1;
+  // Tape reacts to scroll speed, only while it is on screen.
+  const tapes = document.querySelector('.tapes');
+  if (!reduce && tapes && 'IntersectionObserver' in window) {
+    const tracks = [...tapes.querySelectorAll('.tape-track')];
+    let last = scrollY, boost = 1, running = false;
     const tick = () => {
+      if (!running) return;
       const v = Math.abs(scrollY - last); last = scrollY;
       boost += ((1 + Math.min(v / 12, 5)) - boost) * 0.08;
       tracks.forEach((t) => t.getAnimations().forEach((a) => { a.playbackRate = boost; }));
       requestAnimationFrame(tick);
     };
-    requestAnimationFrame(tick);
+    new IntersectionObserver(([e]) => {
+      const was = running; running = e.isIntersecting;
+      if (running && !was) { last = scrollY; requestAnimationFrame(tick); }
+    }).observe(tapes);
   }
 
   // Warsaw local time.
