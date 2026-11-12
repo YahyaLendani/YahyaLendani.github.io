@@ -259,3 +259,6 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
   .bill-top .barcode { display: none; }
   .parcel > header .barcode { font-size: 1.5rem; }
 }
+.bill-manifest a:focus-visible span { color: var(--ink); }
+.bill-manifest a:hover .s-live, .bill-manifest a:focus-visible .s-live { background: var(--ink); color: var(--glo); }
+.bill .sticker:focus-visible { outline-color: var(--ink); }
