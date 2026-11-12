@@ -20,16 +20,23 @@
   const band = document.querySelector('.contents');
   const marker = document.querySelector('.route-marker');
   if (route && end) {
+    const fill = route.querySelector('.route-fill');
+    const native = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()'));
     let ticking = false;
     const size = () => {
       const stop = end.getBoundingClientRect().bottom - route.offsetParent.getBoundingClientRect().top;
-      route.style.height = Math.max(0, stop - route.offsetTop) + 'px';
+      const h = Math.max(0, stop - route.offsetTop);
+      route.style.height = h + 'px';
+      route.style.setProperty('--h', h + 'px');
     };
     const update = () => {
       ticking = false;
       const r = route.getBoundingClientRect();
       const p = r.height ? Math.min(1, Math.max(0, (innerHeight * 0.5 - r.top) / r.height)) : 0;
-      route.style.setProperty('--p', p.toFixed(4));
+      if (!native) {
+        if (fill) fill.style.transform = 'scaleY(' + p.toFixed(4) + ')';
+        if (marker) marker.style.transform = 'translate3d(0,' + (p * r.height).toFixed(1) + 'px,0)' + (reduce ? '' : ' rotate(' + (p * 720).toFixed(1) + 'deg)');
+      }
       if (band && marker) {
         const b = band.getBoundingClientRect();
         const y = r.top + p * r.height;

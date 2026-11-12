@@ -118,11 +118,20 @@ main { position: relative; }
 .tapes, .contents { position: relative; }
 .contact > * { position: relative; }
 .route { position: absolute; left: max(10px, calc((100% - 1240px) / 2 - 46px)); top: 28px; height: 100%; width: 4px; background: repeating-linear-gradient(rgba(255, 255, 255, .5) 0 10px, transparent 10px 20px); pointer-events: none; }
-.route-fill { position: absolute; inset: 0 0 auto 0; height: calc(var(--p, 0) * 100%); background: var(--glo); }
-.route-marker { position: absolute; z-index: 3; left: 50%; top: calc(var(--p, 0) * 100%); width: var(--m, 20px); height: var(--m, 20px); margin: calc(var(--m, 20px) / -2) 0 0 calc(var(--m, 20px) / -2); background: var(--glo); color: var(--ink); border-radius: 5px; display: grid; place-items: center; box-shadow: 0 8px 18px -6px rgba(4, 10, 70, .7); transform: rotate(calc(var(--p, 0) * 720deg)); }
+.route-fill { position: absolute; inset: 0 0 auto 0; height: 100%; transform-origin: 0 0; transform: scaleY(0); will-change: transform; background: var(--glo); }
+.route-marker { position: absolute; z-index: 3; left: 50%; top: 0; width: var(--m, 20px); height: var(--m, 20px); margin: calc(var(--m, 20px) / -2) 0 0 calc(var(--m, 20px) / -2); background: var(--glo); color: var(--ink); border-radius: 5px; display: grid; place-items: center; box-shadow: 0 8px 18px -6px rgba(4, 10, 70, .7); will-change: transform; }
 .route-marker svg { width: 62%; height: 62%; }
 .route-marker.on-band { background: var(--ink); color: var(--glo); }
 .contents::before { content: ""; position: absolute; top: 0; bottom: 0; left: max(10px, calc((100% - 1240px) / 2 - 46px)); width: 4px; background: repeating-linear-gradient(var(--ink) 0 10px, transparent 10px 20px); }
+/* Where the browser can drive this from scroll itself, it does, off the main thread. main.js is the fallback. */
+@keyframes route-fill { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes route-go { from { transform: translate3d(0, 0, 0) rotate(0deg); } to { transform: translate3d(0, var(--h, 0px), 0) rotate(720deg); } }
+@keyframes route-slide { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, var(--h, 0px), 0); } }
+@supports (animation-timeline: view()) {
+  .route { view-timeline: --route block; view-timeline-inset: 50%; }
+  .route-fill { animation: route-fill linear both; animation-timeline: --route; }
+  .route-marker { animation: route-go linear both; animation-timeline: --route; }
+}
 @media (min-width: 1400px) { .route-marker { --m: 40px; border-radius: 6px; } }
 
 .parcel { margin-top: clamp(40px, 6vw, 72px); width: min(100%, 900px); display: grid; grid-template-columns: 1.15fr 1fr; transform: rotate(var(--tilt, -.6deg)); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
@@ -214,7 +223,7 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .tape-track { animation: none; }
-  .route-marker { transform: none; }
+  .route-marker { animation-name: route-slide; }
   .parcel:hover > header::after { animation: none; }
   * { transition-duration: .01ms !important; }
 }
