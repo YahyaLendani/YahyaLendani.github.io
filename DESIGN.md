@@ -308,7 +308,7 @@ Rotation is part of the form language: labels under 1 degree, stamps 2 to 4 degr
 - **Do** resolve every hover and focus fill to day-glo with ink text, and move things on `cubic-bezier(.16, 1, .3, 1)`.
 - **Do** tint shadows `rgba(4, 10, 70, …)` and reserve them for labels, stickers, overhanging stamps, tape and the marker.
 - **Do** flatten labels to zero rotation and one column at 820px and below.
-- **Do** ship every entrance so that content is visible without JavaScript and static under reduced motion.
+- **Do** ship every entrance so that content is visible without JavaScript. Under reduced motion the entrances still play (owner's decision, 2026-11-13); only continuous motion stops: the tape marquee, the marker spin, the scan beam and smooth scrolling.
 
 ### Don't:
 - **Don't** set white text on day-glo or pink.

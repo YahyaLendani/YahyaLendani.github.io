@@ -194,8 +194,9 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
 .foot { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-top: clamp(48px, 7vw, 96px); font: 400 .8125rem var(--mono); color: #b8bdd6; }
 .foot .barcode { color: #fff; font-size: 2.5rem; }
 
-/* motion: content is visible by default; .js arms the entrances */
-@media (prefers-reduced-motion: no-preference) {
+/* motion: content is visible by default; .js arms the entrances.
+   Entrances play for everyone, by the owner's choice; reduced motion only stops what moves continuously. */
+@media screen {
   .bill { animation: print 1.15s var(--ease) both; }
   .bill .sticker { animation: slap .42s cubic-bezier(.2, .9, .25, 1) .9s backwards; }
   .origin-code span { animation: rise .9s var(--ease) calc(.35s + var(--i, 0) * .09s) both; }
@@ -218,7 +219,6 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
   html { scroll-behavior: auto; }
   .tape-track { animation: none; }
   .parcel:hover > header::after { animation: none; }
-  * { transition-duration: .01ms !important; }
 }
 
 /* small screens: labels go flat and single-column */
