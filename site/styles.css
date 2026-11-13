@@ -214,9 +214,9 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
   .js .declare dd span { opacity: 0; transform: translateY(14px); }
   .js .declare > div.in dd span { opacity: 1; transform: none; transition: opacity .5s calc(.15s + var(--n, 0) * .06s), transform .7s var(--ease) calc(.15s + var(--n, 0) * .06s), background .25s, color .25s; }
   .js .signature mask path { stroke-dashoffset: 1; }
-  .js .contact.in .signature mask path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.5s cubic-bezier(.45, 0, .3, 1) .25s; }
-  .js .contact.in .signature mask path:nth-child(2) { transition-duration: 2.1s; transition-delay: 1.6s; }
-  .js .contact.in .signature mask path:nth-child(3) { transition-duration: .9s; transition-delay: 3.55s; }
+  .js .contact.in .signature mask path { stroke-dashoffset: 0; transition: stroke-dashoffset 1s cubic-bezier(.45, 0, .3, 1) .15s; }
+  .js .contact.in .signature mask path:nth-child(2) { transition-duration: 1.35s; transition-delay: 1.05s; }
+  .js .contact.in .signature mask path:nth-child(3) { transition-duration: .55s; transition-delay: 2.3s; }
 }
 
 /* small screens: labels go flat and single-column */
