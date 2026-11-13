@@ -195,7 +195,7 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
 .foot .barcode { color: #fff; font-size: 2.5rem; }
 
 /* motion: content is visible by default; .js arms the entrances.
-   Entrances play for everyone, by the owner's choice; reduced motion only stops what moves continuously. */
+   All motion plays for every visitor, by the owner's choice. */
 @media screen {
   .bill { animation: print 1.15s var(--ease) both; }
   .bill .sticker { animation: slap .42s cubic-bezier(.2, .9, .25, 1) .9s backwards; }
@@ -214,11 +214,6 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
   .js .declare > div.in dd span { opacity: 1; transform: none; transition: opacity .5s calc(.15s + var(--n, 0) * .06s), transform .7s var(--ease) calc(.15s + var(--n, 0) * .06s), background .25s, color .25s; }
   .js .signature path { stroke-dashoffset: 1; }
   .js .contact.in .signature path { stroke-dashoffset: 0; transition: stroke-dashoffset 2.2s cubic-bezier(.6, 0, .2, 1) .2s; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .tape-track { animation: none; }
-  .parcel:hover > header::after { animation: none; }
 }
 
 /* small screens: labels go flat and single-column */

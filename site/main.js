@@ -1,6 +1,4 @@
 (() => {
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   // Entrances: labels print in, stamps land, rules draw.
   // A plain position check backs the observer up, so nothing can stay hidden if the observer never fires.
   let pending = [...document.querySelectorAll('[data-reveal]')];
@@ -45,7 +43,7 @@
         const b = band.getBoundingClientRect();
         marker.classList.toggle('on-band', y >= b.top && y <= b.bottom);
       }
-      if (!reduce) marker.style.transform = 'rotate(' + Math.round(scrollY * 0.12) + 'deg)';
+      marker.style.transform = 'rotate(' + Math.round(scrollY * 0.12) + 'deg)';
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     const refit = () => { size(); update(); };
@@ -61,7 +59,7 @@
 
   // Tape reacts to scroll speed, only while it is on screen.
   const tapes = document.querySelector('.tapes');
-  if (!reduce && tapes && 'IntersectionObserver' in window) {
+  if (tapes && 'IntersectionObserver' in window) {
     const tracks = [...tapes.querySelectorAll('.tape-track')];
     let last = scrollY, boost = 1, running = false;
     const tick = () => {
