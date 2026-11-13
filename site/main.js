@@ -2,13 +2,24 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Entrances: labels print in, stamps land, rules draw.
+  // A plain position check backs the observer up, so nothing can stay hidden if the observer never fires.
+  let pending = [...document.querySelectorAll('[data-reveal]')];
+  const show = (el) => { el.classList.add('in'); };
+  const sweep = () => {
+    const limit = innerHeight * 0.95;
+    pending = pending.filter((el) => {
+      if (el.classList.contains('in')) return false;
+      if (el.getBoundingClientRect().top < limit) { show(el); return false; }
+      return true;
+    });
+  };
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
       }
-    }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
-    document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    pending.forEach((el) => io.observe(el));
   }
   document.querySelectorAll('.declare dd').forEach((dd) => {
     [...dd.children].forEach((s, n) => s.style.setProperty('--n', n));
@@ -20,28 +31,21 @@
   const band = document.querySelector('.contents');
   const marker = document.querySelector('.route-marker');
   if (route && end) {
-    const fill = route.querySelector('.route-fill');
-    const native = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()'));
     let ticking = false;
     const size = () => {
       const stop = end.getBoundingClientRect().bottom - route.offsetParent.getBoundingClientRect().top;
-      const h = Math.max(0, stop - route.offsetTop);
-      route.style.height = h + 'px';
-      route.style.setProperty('--h', h + 'px');
+      route.style.height = Math.max(0, stop - route.offsetTop) + 'px';
     };
     const update = () => {
       ticking = false;
-      const r = route.getBoundingClientRect();
-      const p = r.height ? Math.min(1, Math.max(0, (innerHeight * 0.5 - r.top) / r.height)) : 0;
-      if (!native) {
-        if (fill) fill.style.transform = 'scaleY(' + p.toFixed(4) + ')';
-        if (marker) marker.style.transform = 'translate3d(0,' + (p * r.height).toFixed(1) + 'px,0)' + (reduce ? '' : ' rotate(' + (p * 720).toFixed(1) + 'deg)');
-      }
-      if (band && marker) {
+      sweep();
+      if (!marker) return;
+      const y = marker.getBoundingClientRect().top;
+      if (band) {
         const b = band.getBoundingClientRect();
-        const y = r.top + p * r.height;
         marker.classList.toggle('on-band', y >= b.top && y <= b.bottom);
       }
+      if (!reduce) marker.style.transform = 'rotate(' + Math.round(scrollY * 0.12) + 'deg)';
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     const refit = () => { size(); update(); };
@@ -50,6 +54,9 @@
     addEventListener('load', refit);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
     refit();
+  } else {
+    addEventListener('scroll', sweep, { passive: true });
+    sweep();
   }
 
   // Tape reacts to scroll speed, only while it is on screen.
