@@ -213,8 +213,8 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
   .js .declare dd span { opacity: 0; transform: translateY(14px); }
   .js .declare > div.in dd span { opacity: 1; transform: none; transition: opacity .5s calc(.15s + var(--n, 0) * .06s), transform .7s var(--ease) calc(.15s + var(--n, 0) * .06s), background .25s, color .25s; }
   .js .signature path { stroke-dashoffset: 1; }
-  .js .contact.in .signature path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.9s cubic-bezier(.45, 0, .25, 1) .25s; }
-  .js .contact.in .signature path + path { transition-duration: 1.5s; transition-delay: 2s; }
+  .js .contact.in .signature path { stroke-dashoffset: 0; transition: stroke-dashoffset 2.3s cubic-bezier(.45, 0, .25, 1) .25s; }
+  .js .contact.in .signature path + path { transition-duration: .7s; transition-delay: 2.45s; }
 }
 
 /* small screens: labels go flat and single-column */
