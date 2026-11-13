@@ -180,8 +180,9 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
 /* contact */
 .contact { background: var(--ink); color: #fff; padding: clamp(72px, 10vw, 140px) max(16px, (100% - 1240px) / 2) 28px; }
 .contact h2 { font-size: clamp(3.4rem, 12vw, 6rem); }
-.signature { display: block; width: min(400px, 82%); margin: 8px 0 clamp(28px, 5vw, 56px); stroke: var(--glo); stroke-width: 4.5; filter: drop-shadow(0 0 10px rgba(230, 255, 61, .28)); stroke-linecap: round; stroke-linejoin: round; }
-.signature path { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.signature { display: block; width: min(460px, 88%); margin: 8px 0 clamp(28px, 5vw, 56px); fill: var(--glo); filter: drop-shadow(0 0 12px rgba(230, 255, 61, .3)); }
+/* The filled shape is revealed through a mask of thick centre lines, so it appears to be written by a pen. */
+.signature mask path { fill: none; stroke: #fff; stroke-width: 30; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
 .contact-links li { border-top: 2px solid rgba(255, 255, 255, .28); }
 .contact-links li:last-child { border-bottom: 2px solid rgba(255, 255, 255, .28); }
 .contact-links .void div { display: grid; grid-template-columns: minmax(90px, 200px) 1fr; align-items: center; gap: 6px 20px; padding: 22px 8px; color: #b8bdd6; background: repeating-linear-gradient(-45deg, transparent 0 7px, rgba(255, 255, 255, .09) 7px 8px); }
@@ -212,9 +213,10 @@ a:hover > .arr, a:focus-visible > .arr { transform: translateX(6px); }
   .js .declare > div.in::before { transform: none; transition: transform .9s var(--ease); }
   .js .declare dd span { opacity: 0; transform: translateY(14px); }
   .js .declare > div.in dd span { opacity: 1; transform: none; transition: opacity .5s calc(.15s + var(--n, 0) * .06s), transform .7s var(--ease) calc(.15s + var(--n, 0) * .06s), background .25s, color .25s; }
-  .js .signature path { stroke-dashoffset: 1; }
-  .js .contact.in .signature path { stroke-dashoffset: 0; transition: stroke-dashoffset 2.3s cubic-bezier(.45, 0, .25, 1) .25s; }
-  .js .contact.in .signature path + path { transition-duration: .7s; transition-delay: 2.45s; }
+  .js .signature mask path { stroke-dashoffset: 1; }
+  .js .contact.in .signature mask path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.5s cubic-bezier(.45, 0, .3, 1) .25s; }
+  .js .contact.in .signature mask path:nth-child(2) { transition-duration: 2.1s; transition-delay: 1.6s; }
+  .js .contact.in .signature mask path:nth-child(3) { transition-duration: .9s; transition-delay: 3.55s; }
 }
 
 /* small screens: labels go flat and single-column */
