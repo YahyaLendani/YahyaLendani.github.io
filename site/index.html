@@ -61,6 +61,7 @@
       <ul>
         <li><a href="#cancelos"><b>CancelOS</b><span>Track every subscription, cancel what you do not want</span><i class="stamp s-live">Live</i></a></li>
         <li><a href="#spectracode"><b>SpectraCode</b><span>Codebase answers that cite the exact file and lines</span><i class="stamp s-live">Live</i></a></li>
+        <li><a href="#hailcast"><b>Hailcast</b><span>Taxi demand, streamed and forecast on a live dashboard</span><i class="stamp s-live">Live</i></a></li>
         <li><a href="#nodesync"><b>NodeSync</b><span>Local-first transfer between trusted devices</span><i class="stamp s-proto">Prototype</i></a></li>
         <li><a href="#opus-tuner"><b>Claude skills</b><span>Three open-source skills for Claude Code</span><i class="stamp s-oss">Open source</i></a></li>
         <li><a href="#clinical-ml"><b>Clinical ML</b><span>Trustworthy deep learning for cardiovascular risk</span><i class="stamp s-research">Research</i></a></li>
@@ -83,7 +84,7 @@
 </div>
 
 <section class="shipments" id="shipments">
-  <h2>Seven shipments, <span>tracked.</span></h2>
+  <h2>Eight shipments, <span>tracked.</span></h2>
   <p class="lede">Each one carries an honest status. For public repositories, star counts and last-scan dates are read live from GitHub.</p>
 
 
@@ -120,6 +121,25 @@
     <footer>
       <a class="btn" href="https://spectracode.tech">Visit spectracode.tech <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-quiet" href="https://github.com/YahyaLendani/SpectraCode">Open repository <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </footer>
+    <i class="stamp s-live">Live</i>
+  </article>
+
+  <article class="parcel print" id="hailcast" data-reveal data-repo="hailcast">
+    <header><span class="mono">YL-HAILCAST</span><span class="barcode" aria-hidden="true">*HAILCAST*</span></header>
+    <div class="parcel-main">
+      <h3>Hailcast</h3>
+      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline; LightGBM forecasts hourly demand with walk-forward validation, and a live dashboard shows it all. The trip data is synthetic and labelled as such.</p>
+    </div>
+    <dl>
+      <div><dt>Contents</dt><dd>Python, FastAPI, LightGBM</dd></div>
+      <div><dt>Delivered to</dt><dd>hailcast.onrender.com</dd></div>
+      <div><dt>Last scan</dt><dd class="mono" data-pushed>2026-11-14</dd></div>
+      <div><dt>GitHub stars</dt><dd class="mono" data-stars>0</dd></div>
+    </dl>
+    <footer>
+      <a class="btn" href="https://hailcast.onrender.com">Open live demo <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-quiet" href="https://github.com/YahyaLendani/hailcast">Open repository <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </footer>
     <i class="stamp s-live">Live</i>
   </article>
@@ -211,8 +231,8 @@
   <dl class="declare">
     <div data-reveal><dt>Languages</dt><dd><span>Python</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span><span>Kotlin</span><span>PowerShell</span><span>Bash</span></dd></div>
     <div data-reveal><dt>Web and apps</dt><dd><span>Next.js</span><span>React</span><span>Tailwind CSS</span><span>FastAPI</span><span>Kotlin Multiplatform</span></dd></div>
-    <div data-reveal><dt>Data science</dt><dd><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>scikit-learn</span><span>PyTorch</span><span>XGBoost</span><span>SHAP</span></dd></div>
-    <div data-reveal><dt>Data and backend</dt><dd><span>PostgreSQL</span><span>pgvector</span><span>SQLite</span><span>Supabase</span><span>Docker</span><span>DNS routing</span></dd></div>
+    <div data-reveal><dt>Data science</dt><dd><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>scikit-learn</span><span>PyTorch</span><span>XGBoost</span><span>LightGBM</span><span>SHAP</span></dd></div>
+    <div data-reveal><dt>Data and backend</dt><dd><span>PostgreSQL</span><span>pgvector</span><span>SQLite</span><span>Redis Streams</span><span>Supabase</span><span>Docker</span><span>DNS routing</span></dd></div>
     <div data-reveal><dt>AI tooling</dt><dd><span>Claude Code skills and hooks</span><span>MCP servers</span><span>Tree-sitter</span><span>Ollama</span><span>OpenRouter</span><span>Vertex AI</span></dd></div>
     <div data-reveal><dt>Environment</dt><dd><span>Git and GitHub CLI</span><span>Windows 11</span><span>macOS</span></dd></div>
   </dl>
