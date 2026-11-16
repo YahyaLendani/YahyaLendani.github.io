@@ -129,7 +129,7 @@
     <header><span class="mono">YL-HAILCAST</span><span class="barcode" aria-hidden="true">*HAILCAST*</span></header>
     <div class="parcel-main">
       <h3>Hailcast</h3>
-      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline; LightGBM forecasts hourly demand with walk-forward validation, and a live dashboard shows it all over WebSocket, served by a FastAPI REST API. Every push runs the tests and builds and starts the Docker image in CI. The trip data is synthetic and labelled as such. In a test planned before scoring, LightGBM was not shown to beat simply repeating the same hour from the day before.</p>
+      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline; LightGBM forecasts hourly demand with walk-forward validation, and a live dashboard shows it all over WebSocket, served by a FastAPI REST API. Every push runs the tests and builds and starts the Docker image in CI. A written security review backs the public demo: uploads need an API key, and retraining is rate-limited. The trip data is synthetic and labelled as such. In a test planned before scoring, LightGBM was not shown to beat simply repeating the same hour from the day before.</p>
     </div>
     <dl>
       <div><dt>Contents</dt><dd>Python, FastAPI, LightGBM, Docker</dd></div>
