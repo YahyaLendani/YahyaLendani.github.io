@@ -110,10 +110,10 @@
     <header><span class="mono">YL-SPECTRACODE</span><span class="barcode" aria-hidden="true">*SPECTRACODE*</span></header>
     <div class="parcel-main">
       <h3>SpectraCode</h3>
-      <p>Ask questions about a codebase and get answers that cite the exact file and lines, with every citation checked against the source. Tree-sitter chunking, hybrid retrieval and a call-graph hop sit behind it. Retrieval is benchmarked on 208 real Stack Overflow and GitHub questions; changes ship only if they pass a test planned before scoring, and two of three did not.</p>
+      <p>Ask questions about a codebase and get answers that cite the exact file and lines, with every citation checked against the source. Tree-sitter chunking, hybrid keyword and pgvector search and a call-graph hop find the code, and Gemini writes the answer from it (retrieval-augmented generation) through a FastAPI backend, with tests in CI on every push. Retrieval is benchmarked on 208 real Stack Overflow and GitHub questions; changes ship only if they pass a test planned before scoring, and two of three did not.</p>
     </div>
     <dl>
-      <div><dt>Contents</dt><dd>TypeScript, Python</dd></div>
+      <div><dt>Contents</dt><dd>Next.js, FastAPI, pgvector, Gemini</dd></div>
       <div><dt>Delivered to</dt><dd>spectracode.tech</dd></div>
       <div><dt>Last scan</dt><dd class="mono" data-pushed>2026-11-12</dd></div>
       <div><dt>GitHub stars</dt><dd class="mono" data-stars>0</dd></div>
@@ -129,10 +129,10 @@
     <header><span class="mono">YL-HAILCAST</span><span class="barcode" aria-hidden="true">*HAILCAST*</span></header>
     <div class="parcel-main">
       <h3>Hailcast</h3>
-      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline; LightGBM forecasts hourly demand with walk-forward validation, and a live dashboard shows it all. The trip data is synthetic and labelled as such. In a test planned before scoring, LightGBM was not shown to beat simply repeating the same hour from the day before.</p>
+      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline; LightGBM forecasts hourly demand with walk-forward validation, and a live dashboard shows it all over WebSocket, served by a FastAPI REST API. Every push runs the tests and builds and starts the Docker image in CI. The trip data is synthetic and labelled as such. In a test planned before scoring, LightGBM was not shown to beat simply repeating the same hour from the day before.</p>
     </div>
     <dl>
-      <div><dt>Contents</dt><dd>Python, FastAPI, LightGBM</dd></div>
+      <div><dt>Contents</dt><dd>Python, FastAPI, LightGBM, Docker</dd></div>
       <div><dt>Delivered to</dt><dd>hailcast.onrender.com</dd></div>
       <div><dt>Last scan</dt><dd class="mono" data-pushed>2026-11-14</dd></div>
       <div><dt>GitHub stars</dt><dd class="mono" data-stars>0</dd></div>
@@ -249,7 +249,8 @@
     <div data-reveal><dt>Web and apps</dt><dd><span>Next.js</span><span>React</span><span>Tailwind CSS</span><span>FastAPI</span><span>Kotlin Multiplatform</span></dd></div>
     <div data-reveal><dt>Data science</dt><dd><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>scikit-learn</span><span>PyTorch</span><span>XGBoost</span><span>LightGBM</span><span>SHAP</span></dd></div>
     <div data-reveal><dt>Data and backend</dt><dd><span>PostgreSQL</span><span>pgvector</span><span>SQLite</span><span>Redis Streams</span><span>Supabase</span><span>Docker</span><span>DNS routing</span></dd></div>
-    <div data-reveal><dt>AI tooling</dt><dd><span>Claude Code skills and hooks</span><span>MCP servers</span><span>Tree-sitter</span><span>Ollama</span><span>OpenRouter</span><span>Vertex AI</span></dd></div>
+    <div data-reveal><dt>AI tooling</dt><dd><span>Claude Code skills and hooks</span><span>MCP servers</span><span>Tree-sitter</span><span>Gemini API</span><span>RAG and embeddings</span><span>Ollama</span><span>OpenRouter</span><span>Vertex AI</span></dd></div>
+    <div data-reveal><dt>Testing and delivery</dt><dd><span>pytest</span><span>GitHub Actions CI</span><span>Render</span><span>GitHub Pages</span></dd></div>
     <div data-reveal><dt>Environment</dt><dd><span>Git and GitHub CLI</span><span>Windows 11</span><span>macOS</span></dd></div>
   </dl>
 </section>
