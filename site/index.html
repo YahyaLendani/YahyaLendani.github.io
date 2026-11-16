@@ -64,7 +64,7 @@
         <li><a href="#hailcast"><b>Hailcast</b><span>Taxi demand, streamed and forecast on a live dashboard</span><i class="stamp s-live">Live</i></a></li>
         <li><a href="#nodesync"><b>NodeSync</b><span>Local-first transfer between trusted devices</span><i class="stamp s-proto">Prototype</i></a></li>
         <li><a href="#opus-tuner"><b>Agent skills</b><span>Four open-source skills for Claude Code and Codex</span><i class="stamp s-oss">Open source</i></a></li>
-        <li><a href="#clinical-ml"><b>Clinical ML</b><span>Trustworthy deep learning for cardiovascular risk</span><i class="stamp s-research">Research</i></a></li>
+        <li><a href="#clinical-ml"><b>Clinical ML</b><span>Testing how far heart-disease models can be trusted</span><i class="stamp s-research">Research</i></a></li>
       </ul>
     </div>
 
@@ -129,7 +129,7 @@
     <header><span class="mono">YL-HAILCAST</span><span class="barcode" aria-hidden="true">*HAILCAST*</span></header>
     <div class="parcel-main">
       <h3>Hailcast</h3>
-      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline; LightGBM forecasts hourly demand with walk-forward validation, and a live dashboard shows it all. The trip data is synthetic and labelled as such.</p>
+      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline; LightGBM forecasts hourly demand with walk-forward validation, and a live dashboard shows it all. The trip data is synthetic and labelled as such. In a test planned before scoring, LightGBM was not shown to beat simply repeating the same hour from the day before.</p>
     </div>
     <dl>
       <div><dt>Contents</dt><dd>Python, FastAPI, LightGBM</dd></div>
@@ -228,10 +228,10 @@
     <header><span class="mono">YL-CLINICAL-ML</span><span class="barcode" aria-hidden="true">*CLINICAL-ML*</span></header>
     <div class="parcel-main">
       <h3>Heart Disease Clinical ML</h3>
-      <p>Trustworthy deep learning, graph neural networks, conformal triage and causal recourse for cardiovascular risk and MIMIC-IV mortality prediction.</p>
+      <p>Can a heart-disease model be trusted at the bedside? Eleven models, from logistic regression to graph neural networks, on 918 patients from four hospitals, checked with confidence intervals, leave-one-hospital-out tests, conformal triage, fairness audits and counterfactual recourse. None is significantly better than another, and 90% conformal coverage falls as low as 81% at an unseen hospital. Mortality prediction is shown on the 275-admission MIMIC-IV demo.</p>
     </div>
     <dl>
-      <div><dt>Contents</dt><dd>Python, Pandas, scikit-learn</dd></div>
+      <div><dt>Contents</dt><dd>Python, PyTorch, XGBoost, scikit-learn</dd></div>
       <div><dt>Delivered to</dt><dd>Research code, not a clinical tool</dd></div>
       <div><dt>Last scan</dt><dd class="mono" data-pushed>2026-10-29</dd></div>
       <div><dt>GitHub stars</dt><dd class="mono" data-stars>3</dd></div>
