@@ -61,7 +61,7 @@
       <ul>
         <li><a href="#cancelos"><b>CancelOS</b><span>Track every subscription, cancel what you do not want</span><i class="stamp s-live">Live</i></a></li>
         <li><a href="#spectracode"><b>SpectraCode</b><span>Codebase answers that cite the exact file and lines</span><i class="stamp s-live">Live</i></a></li>
-        <li><a href="#hailcast"><b>Hailcast</b><span>Taxi demand, streamed and forecast on a live dashboard</span><i class="stamp s-live">Live</i></a></li>
+        <li><a href="#hailcast"><b>Hailcast</b><span>Taxi demand forecasts and live NYC buses on a map</span><i class="stamp s-live">Live</i></a></li>
         <li><a href="#nodesync"><b>NodeSync</b><span>Local-first transfer between trusted devices</span><i class="stamp s-proto">Prototype</i></a></li>
         <li><a href="#opus-tuner"><b>Agent skills</b><span>Four open-source skills for Claude Code and Codex</span><i class="stamp s-oss">Open source</i></a></li>
         <li><a href="#clinical-ml"><b>Clinical ML</b><span>Testing how far heart-disease models can be trusted</span><i class="stamp s-research">Research</i></a></li>
@@ -129,16 +129,16 @@
     <header><span class="mono">YL-HAILCAST</span><span class="barcode" aria-hidden="true">*HAILCAST*</span></header>
     <div class="parcel-main">
       <h3>Hailcast</h3>
-      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline; LightGBM forecasts hourly demand with walk-forward validation, and a live dashboard shows it all over WebSocket, served by a FastAPI REST API. Every push runs the tests and builds and starts the Docker image in CI. A written security review backs the public demo: uploads need an API key, and retraining is rate-limited. The trip data is synthetic and labelled as such. In a test planned before scoring, LightGBM was not shown to beat simply repeating the same hour from the day before.</p>
+      <p>Real-time data engineering and demand forecasting for taxi trips. A replayed event stream runs through a Bronze, Silver and Gold pipeline into LightGBM forecasts and a live FastAPI dashboard. A collector stitches about 2,500 live NYC bus positions from MTA Bus Time into trips and plays them back on a map. It runs on its own Oracle Cloud VM with Docker Compose, PostgreSQL and Caddy; CI tests and boots the image on every push, and a written security review backs the public demo. The taxi data is synthetic, and in a test planned before scoring, LightGBM did not beat repeating the same hour from the day before.</p>
     </div>
     <dl>
-      <div><dt>Contents</dt><dd>Python, FastAPI, LightGBM, Docker</dd></div>
-      <div><dt>Delivered to</dt><dd>hailcast.onrender.com</dd></div>
-      <div><dt>Last scan</dt><dd class="mono" data-pushed>2026-11-14</dd></div>
+      <div><dt>Contents</dt><dd>Python, FastAPI, LightGBM, PostgreSQL, Docker</dd></div>
+      <div><dt>Delivered to</dt><dd>hailcast.duckdns.org</dd></div>
+      <div><dt>Last scan</dt><dd class="mono" data-pushed>2026-11-17</dd></div>
       <div><dt>GitHub stars</dt><dd class="mono" data-stars>0</dd></div>
     </dl>
     <footer>
-      <a class="btn" href="https://hailcast.onrender.com">Open live demo <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://hailcast.duckdns.org">Open live demo <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-quiet" href="https://github.com/YahyaLendani/hailcast">Open repository <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </footer>
     <i class="stamp s-live">Live</i>
@@ -250,7 +250,7 @@
     <div data-reveal><dt>Data science</dt><dd><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>scikit-learn</span><span>PyTorch</span><span>XGBoost</span><span>LightGBM</span><span>SHAP</span></dd></div>
     <div data-reveal><dt>Data and backend</dt><dd><span>PostgreSQL</span><span>pgvector</span><span>SQLite</span><span>Redis Streams</span><span>Supabase</span><span>Docker</span><span>DNS routing</span></dd></div>
     <div data-reveal><dt>AI tooling</dt><dd><span>Claude Code skills and hooks</span><span>MCP servers</span><span>Tree-sitter</span><span>Gemini API</span><span>RAG and embeddings</span><span>Ollama</span><span>OpenRouter</span><span>Vertex AI</span></dd></div>
-    <div data-reveal><dt>Testing and delivery</dt><dd><span>pytest</span><span>GitHub Actions CI</span><span>Render</span><span>GitHub Pages</span></dd></div>
+    <div data-reveal><dt>Testing and delivery</dt><dd><span>pytest</span><span>GitHub Actions CI</span><span>Oracle Cloud</span><span>Caddy</span><span>GitHub Pages</span></dd></div>
     <div data-reveal><dt>Environment</dt><dd><span>Git and GitHub CLI</span><span>Windows 11</span><span>macOS</span></dd></div>
   </dl>
 </section>
