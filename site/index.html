@@ -228,17 +228,17 @@
     <header><span class="mono">YL-CLINICAL-ML</span><span class="barcode" aria-hidden="true">*CLINICAL-ML*</span></header>
     <div class="parcel-main">
       <h3>Heart Disease Clinical ML</h3>
-      <p>Can a heart-disease model be trusted at the bedside? A Graph-Augmented Clinical Transformer (PLR periodic embeddings and UniMP masked neighbor attention) tested alongside classical baselines and GNNs on 68,589 OpenML screening patients, 1,221 angiography patients across five hospitals (Cleveland, Budapest, Zurich, Long Beach VA and Tehran) and 4,172 prospective Framingham Heart Study patients. Packaged as a zero-pickle, sub-10ms 2-stage FastAPI and HL7 FHIR R4 decision-support prototype: Stage-1 screening reaches 0.8007 ROC-AUC (0.0094 ECE, +0.0991 over Framingham 2008), and deferred cases escalate to 5-center Stage-2 cardiology workup at 0.9212 ROC-AUC (0.9322 PR-AUC, 0.8% sex sensitivity gap). Local site recalibration cuts prospective Framingham ECE by 98.6% (0.4233 to 0.0061, restoring 90% conformal coverage from 66.8% to 90.9%), backed by 127 tests and mypy in CI, Prometheus and Grafana monitoring, and a 9-slide defense deck. Retrospective research prototype only; mortality prediction on the 275-admission MIMIC-IV demo remains a pipeline demonstration.</p>
+      <p>Can a heart-disease model be trusted at the bedside? A Graph-Augmented Clinical Transformer (PLR periodic embeddings and UniMP masked neighbor attention) tested alongside classical baselines and GNNs on 68,589 OpenML screening patients, 1,221 angiography patients across five hospitals (Cleveland, Budapest, Zurich, Long Beach VA and Tehran) and 4,172 prospective Framingham Heart Study patients. Packaged as a zero-pickle, sub-10ms 2-stage FastAPI and HL7 FHIR R4 decision-support prototype: Stage-1 screening reaches 0.8007 ROC-AUC (0.0094 ECE, +0.1232 over European ESC SCORE2 Poland 2021 and +0.0991 over Framingham 2008), and deferred cases escalate to 5-center Stage-2 cardiology workup at 0.9212 ROC-AUC (0.9322 PR-AUC, 0.8% sex sensitivity gap). Zero-label weighted conformal calibration lifts prospective Framingham coverage +12.0 pts, while 2-second local site recalibration slashes Framingham ECE by 98.6% (0.4233 to 0.0061, restoring 90% coverage from 66.8% to 90.9%), backed by 132 tests and mypy in CI, silent-mode shadow-trial tooling, Prometheus and Grafana monitoring, and a 9-slide defense deck. Retrospective research prototype only; mortality prediction on the 275-admission MIMIC-IV demo remains a pipeline demonstration.</p>
     </div>
     <dl>
       <div><dt>Contents</dt><dd>Python, PyTorch, XGBoost, FastAPI, HL7 FHIR R4, Docker</dd></div>
       <div><dt>Delivered to</dt><dd>Research CDS prototype, not FDA/CE medical software</dd></div>
-      <div><dt>Last scan</dt><dd class="mono" data-pushed>2026-11-21</dd></div>
+      <div><dt>Last scan</dt><dd class="mono" data-pushed>2026-11-22</dd></div>
       <div><dt>GitHub stars</dt><dd class="mono" data-stars>3</dd></div>
     </dl>
     <footer>
-      <a class="btn" href="https://github.com/YahyaLendani/heart-disease-clinical-ml">Open repository <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-quiet" href="https://github.com/YahyaLendani/heart-disease-clinical-ml/releases/tag/v2.0.0">Release v2.0.0 <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="/cardiograph-slides/">Open interactive slides <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-quiet" href="https://github.com/YahyaLendani/heart-disease-clinical-ml">Open repository <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </footer>
     <i class="stamp s-research">Research</i>
   </article>
